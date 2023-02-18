@@ -1,6 +1,15 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
 public class MultipleChoiceProgram extends JFrame implements ActionListener {
     private JLabel questionLabel;
@@ -8,11 +17,39 @@ public class MultipleChoiceProgram extends JFrame implements ActionListener {
     private JButton submitButton;
     private int score = 0;
     private int questionNumber = 0;
+
     private String[][] questions = {
-        {"Who is the considered as the father of Computers?", "Charles Darwin", "Charles Babbage", "Charlie Brown", "Charlie Chaplain"},
-        {"What is the largest planet in our solar system?",  "Saturn", "Uranus", "Neptune","Jupiter"},
-        {"What does XP stand for in Windows XP", "eXtra Power", "eXPerience", "X Program", "eXtensive Power"},
-        {"What does WIFI stand for?", "Wireless Finnish", "Wonderful Finality", "Wireless Fidelity", "Winner Finality"}
+            { 
+                "Who is the considered as the father of Computers?", 
+                    "Charles Darwin", 
+                    "Charles Babbage", 
+                    "Charlie Brown",
+                    "Charlie Chaplain"
+            },
+
+            { 
+                "What is the largest planet in our solar system?", 
+                    "Saturn", 
+                    "Uranus", 
+                    "Neptune", 
+                    "Jupiter" 
+            },
+
+            { 
+                "What does XP stand for in Windows XP", 
+                    "eXtra Power", 
+                    "eXPerience", 
+                    "X Program", 
+                    "eXtensive Power" 
+            },
+
+            { 
+                "What does WIFI stand for?", 
+                    "Wireless Finnish", 
+                    "Wonderful Finality", 
+                    "Wireless Fidelity",
+                    "Winner Finality" 
+            }
     };
 
     public MultipleChoiceProgram() {
@@ -52,20 +89,20 @@ public class MultipleChoiceProgram extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (option2.isSelected() && questionNumber==0) {
+        if ((questionNumber == 0 && option2.isSelected()) || 
+            (questionNumber == 1 && option4.isSelected()) || 
+            (questionNumber == 2 && option2.isSelected()) || 
+            (questionNumber == 3 && option3.isSelected())) {
             score++;
-        } else if (option4.isSelected() && questionNumber==1) {
-            score++;
-        } else if (option2.isSelected() && questionNumber==2) {
-            score++;
-        } else if (option3.isSelected() && questionNumber==3) {
-            score++;
-        } 
+        }
+
         questionNumber++;
+
         if (questionNumber >= questions.length) {
             JOptionPane.showMessageDialog(this, "Your score is " + score + " out of " + questions.length);
             System.exit(0);
         }
+
         questionLabel.setText(questions[questionNumber][0]);
         option1.setText(questions[questionNumber][1]);
         option2.setText(questions[questionNumber][2]);
@@ -74,5 +111,6 @@ public class MultipleChoiceProgram extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new MultipleChoiceProgram(); 
-        }}
+        new MultipleChoiceProgram();
+    }
+}
