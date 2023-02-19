@@ -1,3 +1,4 @@
+package Examples;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -94,9 +95,7 @@ public class MultipleChoiceProgram extends JFrame implements ActionListener {
             (questionNumber == 2 && option2.isSelected()) || 
             (questionNumber == 3 && option3.isSelected())) {
             score++;
-        }
-
-        questionNumber++;
+        } questionNumber++;
 
         if (questionNumber == questions.length) {
             JOptionPane.showMessageDialog(this, "Your score is " + score + " out of " + questions.length);
