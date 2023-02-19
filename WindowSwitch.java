@@ -1,7 +1,6 @@
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,7 +19,6 @@ public class WindowSwitch extends JFrame {
 	private JButton quit;
 	private JLabel long_space = new JLabel("                                                                                                                                                 ");
 	private JLabel short_space = new JLabel("                                              ");
-
 
 	public WindowSwitch() {
 		super("Switching Windows");
@@ -73,6 +71,7 @@ public class WindowSwitch extends JFrame {
 		hoho.h.setSize(700, 500);
 		hoho.h.setLocation(500, 300);
 		hoho.h.setVisible(true);
+		System.out.print("Test Contribute");
 	}
 
 	public class handlers implements ActionListener {
