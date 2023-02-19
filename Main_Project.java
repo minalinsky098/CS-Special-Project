@@ -9,10 +9,10 @@ public class Main_Project {
     int QuestionNumber = 0;
     int TotalScore = 0;
 
-    String QuestionsAnswers[][] = {{"The __________ states that an object at rest remains at rest, and an object in motion remains in motion at constant speed and in a straight line unless acted on by an unbalanced force. ",
-    "Newton’s first law of motion"," Netwon’s Second law of motion","Newton’s Third law of motion","Newton’s Fourth law of motion"},
-    {"Organisms that produce food for themselves and other organisms",
-    "Consumers"," Producers","Food Makers","Primary Consumers"}};
+    String QuestionsAnswers[][] = {{"The __________ states that an object at rest remains at rest, and an object in motion remains in motion at constant speed and in a straight line unless acted on by an unbalanced force. ","Newton’s first law of motion"," Netwon’s Second law of motion","Newton’s Third law of motion","Newton’s Fourth law of motion"},
+    {"Organisms that produce food for themselves and other organisms","Consumers"," Producers","Food Makers","Primary Consumers"},
+    {"The Earth is round.","True","False"," "," "},
+    {"Which of the following materials conducts heat the fastest","Aluminum","Iron","Copper","Steel"}};
 
     String Question;
 
@@ -86,15 +86,6 @@ public class Main_Project {
         QuizFrame.setLayout(null);
 
         // JRadioButton in QuestionFrame
-        
-/* 
-        int numberOfOptions = 4;
-        JRadioButton[] options = new JRadioButton[numberOfOptions];
-        for (int i = 0; i < options.length; i++) {
-            options[i] = new JRadioButton(QuestionsAnswers[QuestionNumber][i + 1]);
-            options[i].setFocusable(false);
-        }
- */
 
         option1 = new JRadioButton(QuestionsAnswers[QuestionNumber][1]);
         option2 = new JRadioButton(QuestionsAnswers[QuestionNumber][2]);
