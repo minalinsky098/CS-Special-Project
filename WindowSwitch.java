@@ -17,7 +17,8 @@ public class WindowSwitch extends JFrame {
 	private JButton kback;
 	private JButton qback1;
 	private JButton quit;
-	private JLabel long_space = new JLabel("                                                                                                                                                 ");
+	private JLabel long_space = new JLabel(
+			"                                                                                                                                                 ");
 	private JLabel short_space = new JLabel("                                              ");
 
 	public WindowSwitch() {
@@ -71,7 +72,6 @@ public class WindowSwitch extends JFrame {
 		hoho.h.setSize(700, 500);
 		hoho.h.setLocation(500, 300);
 		hoho.h.setVisible(true);
-		System.out.print("Test Contribute");
 	}
 
 	public class handlers implements ActionListener {
