@@ -98,7 +98,7 @@ public class MultipleChoiceProgram extends JFrame implements ActionListener {
 
         questionNumber++;
 
-        if (questionNumber >= questions.length) {
+        if (questionNumber == questions.length) {
             JOptionPane.showMessageDialog(this, "Your score is " + score + " out of " + questions.length);
             System.exit(0);
         }
