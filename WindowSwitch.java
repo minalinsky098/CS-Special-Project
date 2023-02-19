@@ -71,7 +71,6 @@ public class WindowSwitch extends JFrame {
 		hoho.h.setSize(700, 500);
 		hoho.h.setLocation(500, 300);
 		hoho.h.setVisible(true);
-		System.out.print("Test Contribute");
 	}
 
 	public class handlers implements ActionListener {
