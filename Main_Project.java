@@ -8,17 +8,16 @@ public class Main_Project {
     int QuestionNumber = 0;
     int TotalScore = 0;
 
-    String QuestionsAnswers[][] = {{"The __________ states that an object at rest remains at rest, and an object in motion remains in motion at constant speed and in a straight line unless acted on by an unbalanced force. ",
-    "Newton’s first law of motion"," Netwon’s Second law of motion","Newton’s Third law of motion","Newton’s Fourth law of motion"},
-    {"Organisms that produce food for themselves and other organisms",
-    "Consumers"," Producers","Food Makers","Primary Consumers"}};
+    String QuestionsAnswers[][] = {{"The __________ states that an object at rest remains at rest, and an object in motion remains in motion at constant speed and in a straight line unless acted on by an unbalanced force. ","Newton’s first law of motion"," Netwon’s Second law of motion","Newton’s Third law of motion","Newton’s Fourth law of motion"},
+    {"Organisms that produce food for themselves and other organisms","Consumers"," Producers","Food Makers","Primary Consumers"},
+    {"The Earth is round.","True","False"," "," "},
+    {"Which of the following materials conducts heat the fastest","Copper","Iron","Steel","Aluminum"}};
 
     String Question;
 
     //Design and Fonts
     Border DefaultBorder = BorderFactory.createLineBorder(Color.black,3); //Para ma dasig differenciate ang Objects Remove lang sa Final
     Font TitleFont = new Font("Helvetica", Font.BOLD, 50);
-
 
     //Objects in StartFrame
     JFrame StartFrame = new JFrame("Starting Page");
@@ -137,7 +136,9 @@ public class Main_Project {
             }
             if(event.getSource() == QFBackButton){
                 QuestionNumber--;
-                TotalScore--;
+                if(ChoiceGroup.isSelected(null)){
+                    TotalScore--;
+                }
                 QuestionLabel.setText(QuestionsAnswers[QuestionNumber][0]);
                 option1.setText(QuestionsAnswers[QuestionNumber][1]);
                 option2.setText(QuestionsAnswers[QuestionNumber][2]);
@@ -146,7 +147,9 @@ public class Main_Project {
                 ChoiceGroup.clearSelection();
             }
             if(event.getSource() == QFNextButton){
-                if(QuestionNumber == 0 && option1.isSelected()||QuestionNumber == 1 && option2.isSelected()){
+                //If the correct answer is ticked totalscore will increase
+                if(QuestionNumber == 0 && option1.isSelected() || QuestionNumber == 1 && option2.isSelected() || 
+                QuestionNumber == 2 && option2.isSelected() || QuestionNumber == 3 && option1.isSelected()){
                     TotalScore++;
                 }
                 if(QuestionNumber == QuestionsAnswers.length-1){
@@ -154,13 +157,21 @@ public class Main_Project {
                     System.exit(0);
                 }
                 QuestionNumber++;
+                //This Snippet is designed to remove choices 3 and 4 in true false questions
+                if(QuestionNumber == 2){
+                    option3.setVisible(false);
+                    option4.setVisible(false);
+                }
+                else{
+                    option3.setVisible(true);
+                    option4.setVisible(true);
+                }
                 QuestionLabel.setText(QuestionsAnswers[QuestionNumber][0]);
                 option1.setText(QuestionsAnswers[QuestionNumber][1]);
                 option2.setText(QuestionsAnswers[QuestionNumber][2]);
                 option3.setText(QuestionsAnswers[QuestionNumber][3]);
                 option4.setText(QuestionsAnswers[QuestionNumber][4]);
                 ChoiceGroup.clearSelection();
-
             }
         }
     }
