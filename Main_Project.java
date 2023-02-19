@@ -3,9 +3,12 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 public class Main_Project {
-    //Para ma dasig differenciate ang Objects Remove lang sa Final
-    Border DefaultBorder = BorderFactory.createLineBorder(Color.black,3);
+
+    //Design and Fonts
+    Border DefaultBorder = BorderFactory.createLineBorder(Color.black,3); //Para ma dasig differenciate ang Objects Remove lang sa Final
     Font TitleFont = new Font("Helvetica", Font.BOLD, 50);
+
+
     //Objects in StartFrame
     JFrame StartFrame = new JFrame("Starting Page");
     JPanel SFTitlePanel = new JPanel();
@@ -54,6 +57,10 @@ public class Main_Project {
         Quizframe.setSize(1550,825);
         Quizframe.setVisible(false);
         Quizframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //JRadioButton
+        JRadioButton option1, option2, option3, option4;
+        
     }
     public static void main(String args[]){
         new Main_Project();
