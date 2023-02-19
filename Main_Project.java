@@ -87,14 +87,16 @@ public class Main_Project {
         QuizFrame.setLayout(null);
 
         // JRadioButton in QuestionFrame
+        
+/* 
         int numberOfOptions = 4;
         JRadioButton[] options = new JRadioButton[numberOfOptions];
         for (int i = 0; i < options.length; i++) {
             options[i] = new JRadioButton(QuestionsAnswers[QuestionNumber][i + 1]);
             options[i].setFocusable(false);
         }
+ */
 
-/*
         option1 = new JRadioButton(QuestionsAnswers[QuestionNumber][1]);
         option2 = new JRadioButton(QuestionsAnswers[QuestionNumber][2]);
         option3 = new JRadioButton(QuestionsAnswers[QuestionNumber][3]);
@@ -103,7 +105,7 @@ public class Main_Project {
         option2.setFocusable(false);
         option3.setFocusable(false);
         option4.setFocusable(false);
- */
+
         ChoiceGroup.add(option1);
         ChoiceGroup.add(option2);
         ChoiceGroup.add(option3);
