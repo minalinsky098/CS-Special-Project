@@ -1,11 +1,7 @@
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
+package Examples;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 public class WindowSwitch extends JFrame {
 	JLabel item0;
 	public JFrame h = new JFrame();
@@ -111,3 +107,7 @@ public class WindowSwitch extends JFrame {
 				if (x == 0) {
 					h.dispose();
 				}
+			}
+		}
+	}
+}
