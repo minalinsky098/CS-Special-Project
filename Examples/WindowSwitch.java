@@ -1,12 +1,7 @@
 package Examples;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 public class WindowSwitch extends JFrame {
 	JLabel item0;
 	public JFrame h = new JFrame();
@@ -18,8 +13,7 @@ public class WindowSwitch extends JFrame {
 	private JButton kback;
 	private JButton qback1;
 	private JButton quit;
-	private JLabel long_space = new JLabel(
-			"                                                                                                                                                 ");
+	private JLabel long_space = new JLabel("                                                                                                                                                 ");
 	private JLabel short_space = new JLabel("                                              ");
 
 	public WindowSwitch() {
@@ -73,6 +67,7 @@ public class WindowSwitch extends JFrame {
 		hoho.h.setSize(700, 500);
 		hoho.h.setLocation(500, 300);
 		hoho.h.setVisible(true);
+		System.out.print("Test Contribute");
 	}
 
 	public class handlers implements ActionListener {
@@ -112,7 +107,6 @@ public class WindowSwitch extends JFrame {
 				if (x == 0) {
 					h.dispose();
 				}
-
 			}
 		}
 	}
