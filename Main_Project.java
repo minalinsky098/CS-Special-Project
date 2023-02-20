@@ -83,12 +83,36 @@ public class Main_Project {
     JButton QFNextButton = new JButton("Next");
     JButton QFBackButton = new JButton("Back");
 
+    //Objects in ResultFrame
+    JFrame ResultFrame = new JFrame("ResultFrame");
+    JLabel QuestionLabels[] = new JLabel[40];
+    JPanel ResultPanel[] = new JPanel[40];
+
+
+    //Others
     ButtonGroup ChoiceGroup = new ButtonGroup();
     JRadioButton option1, option2, option3, option4;
 
     public Main_Project() {
 
-        // Initializing Start Frame
+        //Initializing Result Frame
+        ResultFrame.setSize(500,500);
+        ResultFrame.setDefaultCloseOperation(3);
+        ResultFrame.setLocationRelativeTo(null);
+        ResultFrame.setVisible(false);
+        ResultFrame.setLayout(new GridLayout(10,4));
+
+        for(int x=0; x<40; x++){
+        ResultPanel[x] = new JPanel();
+        QuestionLabels[x] = new JLabel("Question"+(x+1));
+        QuestionLabels[x].setSize(50,5);
+        ResultFrame.add(QuestionLabels[x]);
+        ResultPanel[x].setBorder(DefaultBorder);
+        ResultFrame.add(ResultPanel[x]);
+        }
+        ResultFrame.setSize(600,500);
+
+        //Initializing Start Frame
         StartFrame.setVisible(true);
         StartFrame.setSize(screensize.getSize());
         StartFrame.setResizable(false);
@@ -205,15 +229,22 @@ public class Main_Project {
                 if(QuestionNumber == 0 && option1.isSelected() || QuestionNumber == 1 && option2.isSelected() || QuestionNumber == 2 && option2.isSelected() ||
                 QuestionNumber == 3 && option3.isSelected() || QuestionNumber == 4 && option3.isSelected() || QuestionNumber == 5 && option3.isSelected() || 
                 QuestionNumber == 6 && option1.isSelected() || QuestionNumber == 7 && option2.isSelected() || QuestionNumber == 8 && option1.isSelected() ||
-                QuestionNumber == 9 && option4.isSelected())
-                /*1-10*/{
+                QuestionNumber == 9 && option4.isSelected()/*1-10*/){
+                    ResultPanel[QuestionNumber].setBackground(Color.green);
                     TotalScore++;
                 }
-                QuestionNumber++;
-                if (QuestionNumber == QuestionsAnswers.length-8) {
-                    System.out.print("Total Correct Answers: "+TotalScore);
-                    System.exit(0);
+                else if(ChoiceGroup.isSelected(null)){
+                    ResultPanel[QuestionNumber].setBackground(Color.yellow);
                 }
+                else{
+                    ResultPanel[QuestionNumber].setBackground(Color.red);
+                }
+                QuestionNumber++;
+                if (QuestionNumber == QuestionsAnswers.length) {
+                    System.out.print("Total Correct Answers: "+TotalScore);
+                    ResultFrame.setVisible(true);
+                }
+                else{
                 //This Snippet is designed to remove choices 3 and 4 in true false questions
                 if(QuestionNumber == 2){
                     option3.setVisible(false);
@@ -229,6 +260,7 @@ public class Main_Project {
                 option3.setText(QuestionsAnswers[QuestionNumber][3]);
                 option4.setText(QuestionsAnswers[QuestionNumber][4]);
                 ChoiceGroup.clearSelection();
+            }
             }
         }
     }
