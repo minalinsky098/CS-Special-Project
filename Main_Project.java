@@ -9,22 +9,30 @@ public class Main_Project {
     int QuestionNumber = 0;
     int TotalScore = 0;
 
-    //Questions add lang questions no need na i change parameters
+    // Questions add lang questions no need na i change parameters
     String QuestionsAnswers[][] = {
-        //Questions 1-10
-   /*0*/ {"The __________ states that an object at rest remains at rest, and an object in motion remains in motion at constant speed and in a straight line unless acted on by an unbalanced force. ","Newton’s first law of motion"," Netwon’s Second law of motion","Newton’s Third law of motion","Newton’s Fourth law of motion"},
-   /*1*/ {"Organisms that produce food for themselves and other organisms","Consumers"," Producers","Food Makers","Primary Consumers"},
-   /*2*/ {"The Earth is round.","True","False"," "," "},
-   /*3*/ {"Which of the following materials conducts heat the fastest","Aluminum","Iron","Copper","Steel"},
-   /*4*/ {"In what layer of the atmosphere is the ozone layer located?","Mesosphere","Troposphere","Stratosphere","Thermosphere"},
-   /*5*/ {"How many bones are there in the human body?","208","210","206","204"},
-   /*6*/ {"H2SO4 is the chemical formula of which acid?","Sulfuric acid","Hydrochloric acid","Nitric acid","Phosphoric acid"},
-   /*7*/ {"Which element is liquid at room temperature?","Iron","Mercury","Calcium","Beryllium"},
-   /*8*/ {"What is a group of cats called?","Clowder","Kennel","Pack","Flock"},
-   /*9*/ {"What animal has the strongest bite?","Shark","Crocodile","Piranha","Hippopotamus"},
-   //Questions 11-20
-   /*11*/ {"What is the closest living creature to a T-Rex?","Lizard","Komodo Dragon","Gecko","Chicken"}
-};
+            // Questions 1-10
+            /* 0 */ {
+                    "The __________ states that an object at rest remains at rest, and an object in motion remains in motion at constant speed and in a straight line unless acted on by an unbalanced force. ",
+                    "Newton’s first law of motion", " Netwon’s Second law of motion", "Newton’s Third law of motion",
+                    "Newton’s Fourth law of motion" },
+            /* 1 */ { "Organisms that produce food for themselves and other organisms", "Consumers", " Producers",
+                    "Food Makers", "Primary Consumers" },
+            /* 2 */ { "The Earth is round.", "True", "False", " ", " " },
+            /* 3 */ { "Which of the following materials conducts heat the fastest", "Aluminum", "Iron", "Copper",
+                    "Steel" },
+            /* 4 */ { "In what layer of the atmosphere is the ozone layer located?", "Mesosphere", "Troposphere",
+                    "Stratosphere", "Thermosphere" },
+            /* 5 */ { "How many bones are there in the human body?", "208", "210", "206", "204" },
+            /* 6 */ { "H2SO4 is the chemical formula of which acid?", "Sulfuric acid", "Hydrochloric acid",
+                    "Nitric acid", "Phosphoric acid" },
+            /* 7 */ { "Which element is liquid at room temperature?", "Iron", "Mercury", "Calcium", "Beryllium" },
+            /* 8 */ { "What is a group of cats called?", "Clowder", "Kennel", "Pack", "Flock" },
+            /* 9 */ { "What animal has the strongest bite?", "Shark", "Crocodile", "Piranha", "Hippopotamus" },
+            // Questions 11-20
+            /* 11 */ { "What is the closest living creature to a T-Rex?", "Lizard", "Komodo Dragon", "Gecko",
+                    "Chicken" }
+    };
 
     String Question;
 
@@ -33,8 +41,7 @@ public class Main_Project {
                                                                            // Remove lang sa Final
     Font TitleFont = new Font("Helvetica", Font.BOLD, 50);
 
-
-    //Objects in StartFrame
+    // Objects in StartFrame
     JFrame StartFrame = new JFrame("Starting Page");
     JPanel SFTitlePanel = new JPanel();
     JPanel SFCreatorPanel = new JPanel();
@@ -152,14 +159,13 @@ public class Main_Project {
             }
             if (event.getSource() == QFBackButton) {
                 QuestionNumber--;
-                if(ChoiceGroup.isSelected(null)){
+                if (ChoiceGroup.isSelected(null)) {
                     TotalScore--;
                 }
-                if(QuestionNumber == 2){
+                if (QuestionNumber == 2) {
                     option3.setVisible(false);
                     option4.setVisible(false);
-                }
-                else{
+                } else {
                     option3.setVisible(true);
                     option4.setVisible(true);
                 }
@@ -170,11 +176,14 @@ public class Main_Project {
                 option4.setText(QuestionsAnswers[QuestionNumber][4]);
                 ChoiceGroup.clearSelection();
             }
-            if(event.getSource() == QFNextButton){
-                if(QuestionNumber == 0 && option1.isSelected() || QuestionNumber == 1 && option2.isSelected() || QuestionNumber == 2 && option2.isSelected() ||
-                QuestionNumber == 3 && option3.isSelected() || QuestionNumber == 4 && option3.isSelected() || QuestionNumber == 5 && option3.isSelected() || 
-                QuestionNumber == 6 && option1.isSelected() || QuestionNumber == 7 && option2.isSelected() || QuestionNumber == 8 && option1.isSelected() ||
-                QuestionNumber == 9 && option4.isSelected()){
+            if (event.getSource() == QFNextButton) {
+                if (QuestionNumber == 0 && option1.isSelected() || QuestionNumber == 1 && option2.isSelected()
+                        || QuestionNumber == 2 && option2.isSelected() ||
+                        QuestionNumber == 3 && option3.isSelected() || QuestionNumber == 4 && option3.isSelected()
+                        || QuestionNumber == 5 && option3.isSelected() ||
+                        QuestionNumber == 6 && option1.isSelected() || QuestionNumber == 7 && option2.isSelected()
+                        || QuestionNumber == 8 && option1.isSelected() ||
+                        QuestionNumber == 9 && option4.isSelected()) {
                     TotalScore++;
                 }
                 QuestionNumber++;
@@ -182,12 +191,11 @@ public class Main_Project {
                     System.out.print(TotalScore);
                     System.exit(0);
                 }
-                //This Snippet is designed to remove choices 3 and 4 in true false questions
-                if(QuestionNumber == 2){
+                // This Snippet is designed to remove choices 3 and 4 in true false questions
+                if (QuestionNumber == 2) {
                     option3.setVisible(false);
                     option4.setVisible(false);
-                }
-                else{
+                } else {
                     option3.setVisible(true);
                     option4.setVisible(true);
                 }
