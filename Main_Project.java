@@ -25,38 +25,38 @@ public class Main_Project {
    /*9*/ {"What animal has the strongest bite?","Shark","Crocodile","Piranha","Hippopotamus"},
    //Questions 11-20
    /*10*/{"What is the closest living creature to a T-Rex?","Lizard","Komodo Dragon","Gecko","Chicken"},
-   /*11*/
-   /*12*/
-   /*13*/
-   /*14*/
-   /*15*/
-   /*16*/
-   /*17*/
-   /*18*/
-   /*19*/
+   /*11*/{"How many legs does a lobster have?","10","8","6","12"},
+   /*12*/{"What is the most important element of the nuclear bomb?","Kryptonite","Uranium","Thallium","Palladium"},
+   /*13*/{"How many approximate days our moon takes to complete the orbit on Earth?","15","60","30","20"},
+   /*14*/{"Name the green pigment in plants which also helps in absorbing sunlight.","Chlorophyll","Leaves","Carotenoids","Cytoplasm"},
+   /*15*/{"Which place is no longer considered a planet?","Venus","Mercury","Uranus","Pluto"},
+   /*16*/{"What is the name of the galaxy that contains our solar system?","Andromeda","Orion","Magellanic Clouds","Milky Way"},
+   /*17*/{"What is the chemical formula of water?","O2","NH3","H2O","CO2"},
+   /*18*/{"Which pigment determines the color of the skin?","Melanin","Hemoglobin","Plasma","Genes"},
+   /*19*/{"Which side of the brain controls the left side of the human body?","Right hemisphere","Left hemisphere"},
    //Questions 21-30
-   /*20*/
-   /*21*/
-   /*22*/
-   /*23*/
-   /*24*/
-   /*25*/
-   /*26*/
-   /*27*/
-   /*28*/
-   /*29*/
+   /*20*/{"When a meteoroid survives a trip through the atmosphere and hits the ground, it is called?","Asteroid", "Meteor","Meteorite","Meteoroid"},
+   /*21*/{"How many hours does it take for the Earth to rotate?","48","12","36","24"},
+   /*22*/{"What if the softest mineral found on Earth?","Gypsum", "Calcite", "Fluorite", "Talc"},
+   /*23*/{"What is the 8th planet away from the Sun?","Neptune", "Saturn", "Uranus", "Jupiter"},
+   /*24*/{"Animals which feed on plants are called?","Omnivores","Herbivores","Carnivores","Producers"},
+   /*25*/{"What is the closest star to the Earth?","Sun", "Venus", "Orion", "Cassiopeia"},
+   /*26*/{"Fe is the symbol of which element?","Oxygen", "Iron", "Fluorine", "Water"},
+   /*27*/{"Lightning is hotter than the sun.","True", "False"},
+   /*28*/{"How many hearts does an octopus have?","4","1","2","3"},
+   /*29*/{"Female seahorses give birth to their young.","True", "False"},
    //Questions 31-40
-   /*30*/
-   /*31*/
-   /*32*/
-   /*33*/
-   /*34*/
-   /*35*/
-   /*36*/
-   /*37*/
-   /*38*/
-   /*39*/
-   /*40*/
+   /*30*/{"You can hear an explosion in outer space.","True", "False"},
+   /*31*/{"What is the tallest type of grass?","Lemongrass","Bermuda","Wheat","Bamboo"},
+   /*32*/{"Who made the first computer?","Albert Einstein","Thomas Edison","Charles Babbage","Aris Larroder"},
+   /*33*/{"In terms of computing, what does CPU stand for?", "Central Processing Unit","Central Programming Unit","Central Philippine University","Charge Power Unit"},
+   /*34*/{"In terms of computing, keyboards are used as input devices.","True", "False"},
+   /*35*/{"What does the abbreviation WWW stand for?", "Wee Woo Wee", "World Wave Web", "World Wide Web", "What Who Where"},
+   /*36*/{"DNA is the abbreviation for deoxyribonucleic acid.","True", "False"},
+   /*37*/{"What computer allows users to type documents, like emails and letters?","Mouse", "Typewriter", "Router", "Keyboard"},
+   /*38*/{""},
+   /*39*/{""}, 
+   /*40*/{" Crush ka ba ng crush mo?","False","Falsier","Falsiest"}
 };
 
     String Question;
@@ -80,7 +80,7 @@ public class Main_Project {
     JPanel QFTitlePanel = new JPanel();
     JPanel QFQuestionPanel = new JPanel();
     JPanel QFButtonPanel = new JPanel();
-    JLabel QuestionLabel = new JLabel(QuestionsAnswers[QuestionNumber][0]);
+    JLabel QuestionLabel = new JLabel("Question Number "+(QuestionNumber+1)+". "+QuestionsAnswers[QuestionNumber][0]);
     JButton QFNextButton = new JButton("Next");
     JButton QFBackButton = new JButton("Back");
 
@@ -218,7 +218,7 @@ public class Main_Project {
                     option3.setVisible(true);
                     option4.setVisible(true);
                 }
-                QuestionLabel.setText(QuestionsAnswers[QuestionNumber][0]);
+                QuestionLabel.setText("Question Number "+(QuestionNumber+1)+". "+QuestionsAnswers[QuestionNumber][0]);
                 option1.setText(QuestionsAnswers[QuestionNumber][1]);
                 option2.setText(QuestionsAnswers[QuestionNumber][2]);
                 option3.setText(QuestionsAnswers[QuestionNumber][3]);
@@ -229,7 +229,11 @@ public class Main_Project {
                 if(QuestionNumber == 0 && option1.isSelected() || QuestionNumber == 1 && option2.isSelected() || QuestionNumber == 2 && option2.isSelected() ||
                 QuestionNumber == 3 && option3.isSelected() || QuestionNumber == 4 && option3.isSelected() || QuestionNumber == 5 && option3.isSelected() || 
                 QuestionNumber == 6 && option1.isSelected() || QuestionNumber == 7 && option2.isSelected() || QuestionNumber == 8 && option1.isSelected() ||
-                QuestionNumber == 9 && option4.isSelected()/*1-10*/){
+                QuestionNumber == 9 && option4.isSelected()/*1-10*/ ||
+                QuestionNumber == 10 && option4.isSelected() || QuestionNumber == 11 && option3.isSelected() || QuestionNumber == 12 && option2.isSelected() || 
+                QuestionNumber == 13 && option3.isSelected() || QuestionNumber == 14 && option1.isSelected() || QuestionNumber == 15 && option4.isSelected() || 
+                QuestionNumber == 16 && option4.isSelected() || QuestionNumber == 17 && option3.isSelected() || QuestionNumber == 18 && option1.isSelected() ||
+                QuestionNumber == 19 && option1.isSelected()){
                     ResultPanel[QuestionNumber].setBackground(Color.green);
                     TotalScore++;
                 }
@@ -245,14 +249,14 @@ public class Main_Project {
                     ResultFrame.setVisible(true);
                 }
                 //This Snippet is designed to remove choices 3 and 4 in true false questions
-                if(QuestionNumber == 2){
+                if(QuestionNumber == 2 || QuestionNumber == 19){
                     option3.setVisible(false);
                     option4.setVisible(false);
                 } else {
                     option3.setVisible(true);
                     option4.setVisible(true);
                 }
-                QuestionLabel.setText(QuestionsAnswers[QuestionNumber][0]);
+                QuestionLabel.setText("Question Number "+(QuestionNumber+1)+". "+QuestionsAnswers[QuestionNumber][0]);
                 option1.setText(QuestionsAnswers[QuestionNumber][1]);
                 option2.setText(QuestionsAnswers[QuestionNumber][2]);
                 option3.setText(QuestionsAnswers[QuestionNumber][3]);
