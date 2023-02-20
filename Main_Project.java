@@ -10,7 +10,7 @@ public class Main_Project {
     int QuestionNumber = 0;
     int TotalScore = 0;
 
-    //Questions add lang questions no need na i change parameters
+    // Questions add lang questions no need na i change parameters
     String QuestionsAnswers[][] = {
         //Questions 1-10
    /*0*/ {"The __________ states that an object at rest remains at rest, and an object in motion remains in motion at constant speed and in a straight line unless acted on by an unbalanced force. ","Newton’s first law of motion"," Netwon’s Second law of motion","Newton’s Third law of motion","Newton’s Fourth law of motion"},
@@ -64,6 +64,7 @@ public class Main_Project {
     // Design and Fonts
     Border DefaultBorder = BorderFactory.createLineBorder(Color.black, 3); // Para ma dasig differenciate ang Objects Remove lang sa Final
     Font TitleFont = new Font("Helvetica", Font.BOLD, 50);
+
 
     //Objects in StartFrame
     JFrame StartFrame = new JFrame("Starting Page");
@@ -207,14 +208,13 @@ public class Main_Project {
             }
             if (event.getSource() == QFBackButton) {
                 QuestionNumber--;
-                if(ChoiceGroup.isSelected(null)){
+                if (ChoiceGroup.isSelected(null)) {
                     TotalScore--;
                 }
-                if(QuestionNumber == 2){
+                if (QuestionNumber == 2) {
                     option3.setVisible(false);
                     option4.setVisible(false);
-                }
-                else{
+                } else {
                     option3.setVisible(true);
                     option4.setVisible(true);
                 }
@@ -244,13 +244,11 @@ public class Main_Project {
                     System.out.print("Total Correct Answers: "+TotalScore);
                     ResultFrame.setVisible(true);
                 }
-                else{
                 //This Snippet is designed to remove choices 3 and 4 in true false questions
                 if(QuestionNumber == 2){
                     option3.setVisible(false);
                     option4.setVisible(false);
-                }
-                else{
+                } else {
                     option3.setVisible(true);
                     option4.setVisible(true);
                 }
@@ -264,4 +262,3 @@ public class Main_Project {
             }
         }
     }
-}
