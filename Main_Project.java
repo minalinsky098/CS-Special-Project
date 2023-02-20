@@ -23,7 +23,39 @@ public class Main_Project {
    /*8*/ {"What is a group of cats called?","Clowder","Kennel","Pack","Flock"},
    /*9*/ {"What animal has the strongest bite?","Shark","Crocodile","Piranha","Hippopotamus"},
    //Questions 11-20
-   /*11*/ {"What is the closest living creature to a T-Rex?","Lizard","Komodo Dragon","Gecko","Chicken"}
+   /*10*/{"What is the closest living creature to a T-Rex?","Lizard","Komodo Dragon","Gecko","Chicken"},
+   /*11*/
+   /*12*/
+   /*13*/
+   /*14*/
+   /*15*/
+   /*16*/
+   /*17*/
+   /*18*/
+   /*19*/
+   //Questions 21-30
+   /*20*/
+   /*21*/
+   /*22*/
+   /*23*/
+   /*24*/
+   /*25*/
+   /*26*/
+   /*27*/
+   /*28*/
+   /*29*/
+   //Questions 31-40
+   /*30*/
+   /*31*/
+   /*32*/
+   /*33*/
+   /*34*/
+   /*35*/
+   /*36*/
+   /*37*/
+   /*38*/
+   /*39*/
+   /*40*/
 };
 
     String Question;
@@ -68,18 +100,18 @@ public class Main_Project {
         StartFrame.add(SFButtonPanel);
         // JLabel in StartFrame
         SFTitle.setFont(TitleFont);
-        SFTitle.setBorder(DefaultBorder);
+        //SFTitle.setBorder(DefaultBorder);
 
         SFCreator.setFont(TitleFont);
-        SFCreator.setBorder(DefaultBorder);
+        //SFCreator.setBorder(DefaultBorder);
         // JPanels in StartFrame
-        SFTitlePanel.setBorder(DefaultBorder);
+       // SFTitlePanel.setBorder(DefaultBorder);
         SFTitlePanel.add(SFTitle);
 
-        SFCreatorPanel.setBorder(DefaultBorder);
+       // SFCreatorPanel.setBorder(DefaultBorder);
         SFCreatorPanel.add(SFCreator);
 
-        SFButtonPanel.setBorder(DefaultBorder);
+       // SFButtonPanel.setBorder(DefaultBorder);
         SFButtonPanel.add(SFButton);
 
         // JButtons in StartFrame
@@ -114,11 +146,11 @@ public class Main_Project {
         ChoiceGroup.add(option4);
 
         // JPanels in QuestionFrame
-        QFTitlePanel.setBorder(DefaultBorder);
+        //QFTitlePanel.setBorder(DefaultBorder);
         QFTitlePanel.setBounds(0, 0, 1550, 50);
         QFTitlePanel.add(new JLabel("Add Title"));
 
-        QFQuestionPanel.setBorder(DefaultBorder);
+        //QFQuestionPanel.setBorder(DefaultBorder);
         QFQuestionPanel.setLayout(new GridLayout(5, 1));
         QFQuestionPanel.setBounds(0, 50, 1550, 650);
         QFQuestionPanel.add(QuestionLabel);
@@ -127,7 +159,7 @@ public class Main_Project {
         QFQuestionPanel.add(option3);
         QFQuestionPanel.add(option4);
 
-        QFButtonPanel.setBorder(DefaultBorder);
+        //QFButtonPanel.setBorder(DefaultBorder);
         QFButtonPanel.setBounds(0, 700, 1550, 85);
 
         QFButtonPanel.add(QFBackButton);
@@ -174,12 +206,13 @@ public class Main_Project {
                 if(QuestionNumber == 0 && option1.isSelected() || QuestionNumber == 1 && option2.isSelected() || QuestionNumber == 2 && option2.isSelected() ||
                 QuestionNumber == 3 && option3.isSelected() || QuestionNumber == 4 && option3.isSelected() || QuestionNumber == 5 && option3.isSelected() || 
                 QuestionNumber == 6 && option1.isSelected() || QuestionNumber == 7 && option2.isSelected() || QuestionNumber == 8 && option1.isSelected() ||
-                QuestionNumber == 9 && option4.isSelected()){
+                QuestionNumber == 9 && option4.isSelected())
+                /*1-10*/{
                     TotalScore++;
                 }
                 QuestionNumber++;
-                if (QuestionNumber == QuestionsAnswers.length - 1) {
-                    System.out.print(TotalScore);
+                if (QuestionNumber == QuestionsAnswers.length-8) {
+                    System.out.print("Total Correct Answers: "+TotalScore);
                     System.exit(0);
                 }
                 //This Snippet is designed to remove choices 3 and 4 in true false questions
