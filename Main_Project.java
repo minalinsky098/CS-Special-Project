@@ -6,6 +6,7 @@ import javax.swing.border.*;
 public class Main_Project {
     // Variables
 
+    Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
     int QuestionNumber = 0;
     int TotalScore = 0;
 
@@ -61,10 +62,8 @@ public class Main_Project {
     String Question;
 
     // Design and Fonts
-    Border DefaultBorder = BorderFactory.createLineBorder(Color.black, 3); // Para ma dasig differenciate ang Objects
-                                                                           // Remove lang sa Final
+    Border DefaultBorder = BorderFactory.createLineBorder(Color.black, 3); // Para ma dasig differenciate ang Objects Remove lang sa Final
     Font TitleFont = new Font("Helvetica", Font.BOLD, 50);
-
 
     //Objects in StartFrame
     JFrame StartFrame = new JFrame("Starting Page");
@@ -91,7 +90,7 @@ public class Main_Project {
 
         // Initializing Start Frame
         StartFrame.setVisible(true);
-        StartFrame.setSize(1550, 825);
+        StartFrame.setSize(screensize.getSize());
         StartFrame.setResizable(false);
         StartFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         StartFrame.setLayout(new GridLayout(3, 1));
@@ -121,7 +120,7 @@ public class Main_Project {
         SFButton.addActionListener(ButtonPressed);
 
         // Initializing QuizFrame
-        QuizFrame.setSize(1550, 825);
+        QuizFrame.setSize(screensize.getSize());
         QuizFrame.setVisible(false);
         QuizFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         QuizFrame.add(QFTitlePanel);
