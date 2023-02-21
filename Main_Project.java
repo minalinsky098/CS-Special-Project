@@ -94,7 +94,7 @@ public class Main_Project {
                     "Router", "Keyboard" },
             /* 38 */{ "What do you call the study of light", "Astronomy", "Optics", "Botany", "Therapy" },
             // /* 39 */{ "How many bones does a shark have?", "206, 208, 0, 12" },
-            /* 39 */{ " Crush ka ba ng crush mo?", "False", "Falsier", "Falsiest" }
+            /* 39 */{ " Crush ka ba ng crush mo?", "False", "Falsier", "Falsiest","No" }
     };
 
     String Question;
@@ -248,16 +248,17 @@ public class Main_Project {
             }
             if (event.getSource() == QFBackButton) {
                 QuestionNumber--;
-                if (ChoiceGroup.isSelected(null)) {
+                if (!(ChoiceGroup.isSelected(null))) {
                     TotalScore--;
                 }
-                if (QuestionNumber == 2) {
-                    option3.setVisible(false);
-                    option4.setVisible(false);
-                } else {
-                    option3.setVisible(true);
-                    option4.setVisible(true);
-                }
+                if (QuestionNumber == 2 || QuestionNumber == 19 || QuestionNumber ==27 || QuestionNumber == 29 || QuestionNumber == 30 || QuestionNumber == 36) {
+                        option3.setVisible(false);
+                        option4.setVisible(false);
+                    } else {
+                        option3.setVisible(true);
+                        option4.setVisible(true);
+                    }
+
                 QuestionLabel.setText(
                         "Question Number " + (QuestionNumber + 1) + ". "
                                 + QuestionsAnswers[QuestionNumber][0]);
@@ -267,6 +268,7 @@ public class Main_Project {
                 option4.setText(QuestionsAnswers[QuestionNumber][4]);
                 ChoiceGroup.clearSelection();
             }
+            try{
             if (event.getSource() == QFNextButton) {
 
                 /*
@@ -369,7 +371,7 @@ public class Main_Project {
                         || QuestionNumber == 38 && option3.isSelected()
                         || QuestionNumber == 39 && option1.isSelected()
                         || QuestionNumber == 39 && option2.isSelected()
-                        || QuestionNumber == 39 && option3.isSelected()) {
+                        || QuestionNumber == 39 && ChoiceGroup.isSelected(null)) {
                     ResultPanel[QuestionNumber].setBackground(Color.green);
                     TotalScore++;
                 }
@@ -385,19 +387,19 @@ public class Main_Project {
                     JOptionPane.showMessageDialog(null, "Total Correct Answers: " + TotalScore,
                             "Quiz Result", JOptionPane.INFORMATION_MESSAGE);
                     ResultFrame.setVisible(true);
+                    QFBackButton.setEnabled(false);
+                    QFNextButton.setEnabled(false);
                 }
 
                 // This Snippet is designed to remove choices 3 and 4 in true false questions
-                if (QuestionNumber == 2 || QuestionNumber == 19) {
+                if (QuestionNumber == 2 || QuestionNumber == 19 || QuestionNumber ==27 || QuestionNumber == 29 || QuestionNumber == 30 || QuestionNumber == 36) {
                     option3.setVisible(false);
                     option4.setVisible(false);
                 } else {
                     option3.setVisible(true);
                     option4.setVisible(true);
                 }
-                QuestionLabel.setText(
-                        "Question Number " + (QuestionNumber + 1) + ". "
-                                + QuestionsAnswers[QuestionNumber][0]);
+                QuestionLabel.setText("Question Number " + (QuestionNumber + 1) + ". " + QuestionsAnswers[QuestionNumber][0]);
                 option1.setText(QuestionsAnswers[QuestionNumber][1]);
                 option2.setText(QuestionsAnswers[QuestionNumber][2]);
                 option3.setText(QuestionsAnswers[QuestionNumber][3]);
@@ -405,5 +407,9 @@ public class Main_Project {
                 ChoiceGroup.clearSelection();
             }
         }
+        catch(Exception e){
+                System.out.print("End");
+        }
+    }
     }
 }
