@@ -5,7 +5,11 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.net.MalformedURLException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -23,7 +27,6 @@ public class Main_Project {
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         int QuestionNumber = 0;
         int TotalScore = 0;
-
 
         JLabel gif = new JLabel();
 
@@ -111,9 +114,20 @@ public class Main_Project {
         };
 
         String[] gifArray = {
-                        "/home/mitsuki/Pictures/330985215_747584703245031_828804229974458214_n.jpg",
-                        "/home/mitsuki/Pictures/329213213_696003885332599_7657948939188235792_n.jpg",
-                        "/home/mitsuki/Pictures/315267034_893128918380508_9066527379242832256_n.jpg"
+                        // "/home/mitsuki/Pictures/330985215_747584703245031_828804229974458214_n.jpg",
+                        // "/home/mitsuki/Pictures/329213213_696003885332599_7657948939188235792_n.jpg",
+                        // "/home/mitsuki/Pictures/315267034_893128918380508_9066527379242832256_n.jpg",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
         };
 
         int gifIndex = 0;
@@ -383,20 +397,29 @@ public class Main_Project {
 
                         if (event.getSource() == QFNextButton || (event.getSource() == QFBackButton && gifIndex != 0)) {
                                 QFQuestionPanel.remove(gif);
-                                ImageIcon icon = new ImageIcon(gifArray[gifIndex]);
-                                if (event.getSource() == QFNextButton) {
-                                        gifIndex += 1;
-                                } else if (event.getSource() == QFBackButton && gifIndex != 0) {
-                                        gifIndex -= 1;
-                                }
-                                icon.setImageObserver(gif);
-                                gif.setIcon(icon);
-                                QFQuestionPanel.add(gif);
-                                QFQuestionPanel.revalidate();
-                                QFQuestionPanel.repaint();
+                                URL url;
+                                try {
+                                        url = new URL(gifArray[gifIndex]);
 
-                                System.out.println("GIF Index is at: " + gifIndex);
+                                        ImageIcon icon = new ImageIcon(url);
+                                        if (event.getSource() == QFNextButton) {
+                                                gifIndex += 1;
+                                        } else if (event.getSource() == QFBackButton && gifIndex != 0) {
+                                                gifIndex -= 1;
+                                        }
+                                        icon.setImageObserver(gif);
+                                        gif.setIcon(icon);
+                                        QFQuestionPanel.add(gif);
+                                        QFQuestionPanel.revalidate();
+                                        QFQuestionPanel.repaint();
+
+                                        System.out.println("GIF Index is at: " + gifIndex);
+                                } catch (MalformedURLException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                }
                         }
+
                 }
         }
 }
