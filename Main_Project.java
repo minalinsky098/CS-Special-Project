@@ -24,6 +24,9 @@ public class Main_Project {
         int QuestionNumber = 0;
         int TotalScore = 0;
 
+
+        JLabel gif = new JLabel();
+
         // Questions add lang questions no need na i change parameters
         String QuestionsAnswers[][] = {
                         // Questions 1-10
@@ -108,9 +111,9 @@ public class Main_Project {
         };
 
         String[] gifArray = {
-                        "gif 1",
-                        "gif 2",
-                        "gif 3"
+                        "/home/mitsuki/Pictures/330985215_747584703245031_828804229974458214_n.jpg",
+                        "/home/mitsuki/Pictures/329213213_696003885332599_7657948939188235792_n.jpg",
+                        "/home/mitsuki/Pictures/315267034_893128918380508_9066527379242832256_n.jpg"
         };
 
         int gifIndex = 0;
@@ -379,14 +382,19 @@ public class Main_Project {
                         }
 
                         if (event.getSource() == QFNextButton || (event.getSource() == QFBackButton && gifIndex != 0)) {
+                                QFQuestionPanel.remove(gif);
+                                ImageIcon icon = new ImageIcon(gifArray[gifIndex]);
                                 if (event.getSource() == QFNextButton) {
                                         gifIndex += 1;
                                 } else if (event.getSource() == QFBackButton && gifIndex != 0) {
                                         gifIndex -= 1;
                                 }
-                                JLabel gif = new JLabel(new ImageIcon(gifArray[gifIndex]));
-                                gif.setLocation(500, 500);
+                                icon.setImageObserver(gif);
+                                gif.setIcon(icon);
                                 QFQuestionPanel.add(gif);
+                                QFQuestionPanel.revalidate();
+                                QFQuestionPanel.repaint();
+
                                 System.out.println("GIF Index is at: " + gifIndex);
                         }
                 }
