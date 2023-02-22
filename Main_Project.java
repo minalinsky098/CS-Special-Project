@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -105,6 +106,14 @@ public class Main_Project {
                         // /* 39 */{ "How many bones does a shark have?", "206, 208, 0, 12" },
                         /* 39 */{ "Crush ka ba ng crush mo?", "False", "Falsier", "Falsiest", "Di mo sure" }
         };
+
+        String[] gifArray = {
+                        "gif 1",
+                        "gif 2",
+                        "gif 3"
+        };
+
+        int gifIndex = 0;
 
         String Question;
 
@@ -264,6 +273,9 @@ public class Main_Project {
                                 QuizFrame.setVisible(true);
                         }
                         if (event.getSource() == QFBackButton) {
+                                if (QuestionNumber == 0) {
+                                        return;
+                                }
                                 QuestionNumber--;
                                 if (ChoiceGroup.isSelected(null)) {
                                         TotalScore--;
@@ -364,6 +376,18 @@ public class Main_Project {
                                 option3.setText(QuestionsAnswers[QuestionNumber][3]);
                                 option4.setText(QuestionsAnswers[QuestionNumber][4]);
                                 ChoiceGroup.clearSelection();
+                        }
+
+                        if (event.getSource() == QFNextButton || (event.getSource() == QFBackButton && gifIndex != 0)) {
+                                if (event.getSource() == QFNextButton) {
+                                        gifIndex += 1;
+                                } else if (event.getSource() == QFBackButton && gifIndex != 0) {
+                                        gifIndex -= 1;
+                                }
+                                JLabel gif = new JLabel(new ImageIcon(gifArray[gifIndex]));
+                                gif.setLocation(500, 500);
+                                QFQuestionPanel.add(gif);
+                                System.out.println("GIF Index is at: " + gifIndex);
                         }
                 }
         }
