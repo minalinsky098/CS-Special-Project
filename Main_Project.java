@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 public class Main_Project extends MouseAdapter{
         // Variables
@@ -137,8 +138,7 @@ public class Main_Project extends MouseAdapter{
         JPanel QFTitlePanel = new JPanel();
         JPanel QFQuestionPanel = new JPanel();
         JPanel QFButtonPanel = new JPanel();
-        JLabel QuestionLabel = new JLabel(
-                        "Q" + (QuestionNumber + 1) + ". " + QuestionsAnswers[QuestionNumber][0]);
+        JLabel QuestionLabel = new JLabel("Q" + (QuestionNumber + 1) + ". " + QuestionsAnswers[QuestionNumber][0]);
         JButton QFNextButton = new JButton(">>");
         JButton QFBackButton = new JButton("<<");
 
@@ -232,35 +232,49 @@ public class Main_Project extends MouseAdapter{
                 ChoiceGroup.add(option4);
 
                 // JPanels in QuestionFrame
-                QFTitlePanel.setBorder(DefaultBorder);
+                //QFTitlePanel.setBorder(DefaultBorder);
                 QFTitlePanel.setBounds(0, 0, 1550, 50);
                 QFTitlePanel.add(new JLabel("Add Title"));
 
                 //QFQuestionPanel.setBorder(DefaultBorder);
-                QFQuestionPanel.setLayout(new GridLayout(4, 1));
-                QFQuestionPanel.setBounds(250, 50, 1000, 650);
+                QFQuestionPanel.setLayout(null);
+                QFQuestionPanel.setBounds(0, 50, 1550, 650);
                 QFQuestionPanel.add(QuestionLabel);
                 QFQuestionPanel.add(option1);
                 QFQuestionPanel.add(option2);
                 QFQuestionPanel.add(option3);
                 QFQuestionPanel.add(option4);
 
-                QuestionLabel.setBorder(DefaultBorder);
-                option1.setBorder(DefaultBorder);
-                option2.setBorder(DefaultBorder);
-                option3.setBorder(DefaultBorder);
-                option4.setBorder(DefaultBorder);
+
+                //QuestionLabel.setBorder(DefaultBorder);
+                QuestionLabel.setBounds(0,300,1550,100);
+                QuestionLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                option1.setHorizontalAlignment(SwingConstants.CENTER);
+                option2.setHorizontalAlignment(SwingConstants.CENTER);
+                option3.setHorizontalAlignment(SwingConstants.CENTER);
+                option4.setHorizontalAlignment(SwingConstants.CENTER);
+                option1.setBounds(0,400,1500,50);
+                option2.setBounds(0,450,1500,50);
+                option3.setBounds(0,500,1500,50);
+                option4.setBounds(0,550,1500,50);
 
                 QFButtonPanel.setBorder(DefaultBorder);
                 QFButtonPanel.setBounds(0, 700, 1550, 100);
+                QFButtonPanel.setLayout(null);
 
                 QFButtonPanel.add(QFBackButton);
                 QFBackButton.setFocusable(false);
                 QFBackButton.addActionListener(ButtonPressed);
+                QFBackButton.setBounds(650,25,100,50);
+                QFBackButton.setHorizontalAlignment(SwingConstants.CENTER);
 
                 QFButtonPanel.add(QFNextButton);
                 QFNextButton.setFocusable(false);
                 QFNextButton.addActionListener(ButtonPressed);
+                QFNextButton.setBounds(775,25,100,50);
+                QFNextButton.setHorizontalAlignment(SwingConstants.CENTER);
+
+                
 
         }
 
@@ -272,7 +286,6 @@ public class Main_Project extends MouseAdapter{
                 public void actionPerformed(ActionEvent event) {
                         if (event.getSource() == SFButton) {
                                 StartFrame.setVisible(false);
-                                System.out.print("Hello");
                                 QuizFrame.setVisible(true);
                         }
                         if (event.getSource() == QFBackButton) {
@@ -339,7 +352,7 @@ public class Main_Project extends MouseAdapter{
                                                 || QuestionNumber == 35 && option3.isSelected()
                                                 || QuestionNumber == 36 && option1.isSelected()
                                                 || QuestionNumber == 37 && option4.isSelected()
-                                                || QuestionNumber == 38 && option3.isSelected()
+                                                || QuestionNumber == 38 && option2.isSelected()
                                                 || QuestionNumber == 39 && option1.isSelected()
                                                 || QuestionNumber == 39 && option2.isSelected()
                                                 || QuestionNumber == 39 && option3.isSelected()
