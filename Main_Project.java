@@ -3,7 +3,13 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -21,6 +27,8 @@ public class Main_Project extends MouseAdapter{
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         int QuestionNumber = 0;
         int TotalScore = 0;
+
+        JLabel gif = new JLabel();
 
         // Questions add lang questions no need na i change parameters
         String QuestionsAnswers[][] = {
@@ -106,9 +114,20 @@ public class Main_Project extends MouseAdapter{
         };
 
         String[] gifArray = {
-                        "gif 1",
-                        "gif 2",
-                        "gif 3"
+                        // "/home/mitsuki/Pictures/330985215_747584703245031_828804229974458214_n.jpg",
+                        // "/home/mitsuki/Pictures/329213213_696003885332599_7657948939188235792_n.jpg",
+                        // "/home/mitsuki/Pictures/315267034_893128918380508_9066527379242832256_n.jpg",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
+                        "https://media.tenor.com/YTKrLYrAQOIAAAAC/cute-shark.gif",
         };
 
         int gifIndex = 0;
@@ -394,16 +413,30 @@ public class Main_Project extends MouseAdapter{
                                 ChoiceGroup.clearSelection();
                         }
                         if (event.getSource() == QFNextButton || (event.getSource() == QFBackButton && gifIndex != 0)) {
-                                if (event.getSource() == QFNextButton) {
-                                        gifIndex += 1;
-                                } else if (event.getSource() == QFBackButton && gifIndex != 0) {
-                                        gifIndex -= 1;
+                                QFQuestionPanel.remove(gif);
+                                URL url;
+                                try {
+                                        url = new URL(gifArray[gifIndex]);
+
+                                        ImageIcon icon = new ImageIcon(url);
+                                        if (event.getSource() == QFNextButton) {
+                                                gifIndex += 1;
+                                        } else if (event.getSource() == QFBackButton && gifIndex != 0) {
+                                                gifIndex -= 1;
+                                        }
+                                        icon.setImageObserver(gif);
+                                        gif.setIcon(icon);
+                                        QFQuestionPanel.add(gif);
+                                        QFQuestionPanel.revalidate();
+                                        QFQuestionPanel.repaint();
+
+                                        System.out.println("GIF Index is at: " + gifIndex);
+                                } catch (MalformedURLException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
                                 }
-                                JLabel gif = new JLabel(new ImageIcon(gifArray[gifIndex]));
-                                gif.setLocation(500, 500);
-                                QFQuestionPanel.add(gif);
-                                System.out.println("GIF Index is at: " + gifIndex);
                         }
+
                 }
         }
 }
