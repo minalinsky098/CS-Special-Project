@@ -3,9 +3,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.event.*;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -16,8 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.Border;
-
-public class Main_Project {
+public class Main_Project extends MouseAdapter{
         // Variables
 
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -235,21 +232,27 @@ public class Main_Project {
                 ChoiceGroup.add(option4);
 
                 // JPanels in QuestionFrame
-                // QFTitlePanel.setBorder(DefaultBorder);
-                QFTitlePanel.setBounds(0, 0, 1550, 150);
+                QFTitlePanel.setBorder(DefaultBorder);
+                QFTitlePanel.setBounds(0, 0, 1550, 50);
                 QFTitlePanel.add(new JLabel("Add Title"));
 
-                // QFQuestionPanel.setBorder(DefaultBorder);
-                QFQuestionPanel.setLayout(new GridLayout(5, 1));
-                QFQuestionPanel.setBounds(250, 150, 1000, 400);
+                //QFQuestionPanel.setBorder(DefaultBorder);
+                QFQuestionPanel.setLayout(new GridLayout(4, 1));
+                QFQuestionPanel.setBounds(250, 50, 1000, 650);
                 QFQuestionPanel.add(QuestionLabel);
                 QFQuestionPanel.add(option1);
                 QFQuestionPanel.add(option2);
                 QFQuestionPanel.add(option3);
                 QFQuestionPanel.add(option4);
 
-                // QFButtonPanel.setBorder(DefaultBorder);
-                QFButtonPanel.setBounds(0, 700, 1550, 85);
+                QuestionLabel.setBorder(DefaultBorder);
+                option1.setBorder(DefaultBorder);
+                option2.setBorder(DefaultBorder);
+                option3.setBorder(DefaultBorder);
+                option4.setBorder(DefaultBorder);
+
+                QFButtonPanel.setBorder(DefaultBorder);
+                QFButtonPanel.setBounds(0, 700, 1550, 100);
 
                 QFButtonPanel.add(QFBackButton);
                 QFBackButton.setFocusable(false);
@@ -377,7 +380,6 @@ public class Main_Project {
                                 option4.setText(QuestionsAnswers[QuestionNumber][4]);
                                 ChoiceGroup.clearSelection();
                         }
-
                         if (event.getSource() == QFNextButton || (event.getSource() == QFBackButton && gifIndex != 0)) {
                                 if (event.getSource() == QFNextButton) {
                                         gifIndex += 1;
